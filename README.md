@@ -1,12 +1,76 @@
-# Getting Started with Create React App
+# Postblog
+
+A simple blog posting application with `React` and `Firebase`.
+
+The base application is created using the `create-react-app` template.
+
+## Libraries
+The following libraries are required which can be installed with `npm install`.
+
+- `firebase`
+- `react-loading-skeleton`
+- `react-router-dom@6`
+
+After starting the application using `npm start`, access it through browser via
+the link `http://localhost:3000/`.
+
+New *Posts* can be created by *Logging* in through _google_ account and the
+existing _Posts_ may be viewed as readonly after accessing the url.
+
+### Screenshots
+Here are the screenshots of the system while it is live.
+
+Before login:
+[![before signin](screenshots/unsigned.png)]
+
+After logging using `google` id, the header shows additional options as shown below
+
+[![after signin](screenshots/loggedin_header.png)]
+
+New posts can be posted after signing in as shown below
+
+[![create post](screenshots/new_post.png)]
+
+## Offloading Firebase configuration to dotenv
+
+Offloading the `Firebase` configuration information like the api keys and url's can be quite tricky.
+The below steps worked:
+
+1. Create a .env file at the root directory of your application and add the variables to it.
+
+```javascript
+// contents of .env
+
+REACT_APP_API_KEY = 'my-secret-api-key'
+```
+*keep in mind a variable needs to start with `REACT_APP_` for it to work.*
+
+2. Add `.env` to your `.gitignore` file so that Git ignores it and it never ends up on GitHub.
+
+3. Access the _ENV_ variable in your application as below:
+
+```javascript
+# config.js file or the file you need to access ENV
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: `${process.env.REACT_APP_FIREBASE_API_KEY}`,
+    authDomain: `${process.env.REACT_APP_FIREBASE_AUTH_DOMAIN}`,
+    projectId: `${process.env.REACT_APP_FIREBASE_PROJECT_ID}`,
+    storageBucket: `${process.env.REACT_APP_FIREBASE_STORAGE_BUCKET}`,
+    messagingSenderId: `${process.env.REACT_APP_FIREBASE_MSGSENDER_ID}`,
+    appId: `${process.env.REACT_APP_FIREBASE_APP_ID}`
+};
+```
+
+## Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+#### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -14,57 +78,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
+#### `npm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

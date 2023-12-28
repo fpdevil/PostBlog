@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>README.html</title>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8"/>
+<link rel="stylesheet" type="text/css" media="all" href="https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css"  />
+<link rel="stylesheet" type="text/css" media="all" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/github.min.css"  />
+<meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+<style>
+body {
+  box-sizing: border-box;
+  max-width: 740px;
+  width: 100%;
+  margin: 40px auto;
+  padding: 0 10px;
+}
+</style>
+
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/default.min.css'>
+<script src='https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js'></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.classList.add('markdown-body');
+  document.querySelectorAll('pre code').forEach((code) => {
+    if (code.className != 'mermaid') {
+      hljs.highlightBlock(code);
+    }
+  });
+});
+</script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.6.3/mermaid.min.js'></script>
+<script>
+mermaid.initialize({
+  theme: 'default',  // default, forest, dark, neutral
+  startOnLoad: true
+});
+</script>
+
+</head>
+
+<body>
+
+<h1 id="postblog">Postblog</h1>
+
+<p>A simple blog posting application with <code>React</code> and <code>Firebase</code>.</p>
+
+<p>The base application is created using the <code>create-react-app</code> template.</p>
+
+<h2 id="libraries">Libraries</h2>
+
+<p>The following libraries are required which can be installed with <code>npm install</code>.</p>
+
+<ul>
+<li><code>firebase</code></li>
+<li><code>react-loading-skeleton</code></li>
+<li><code>react-router-dom@6</code></li>
+</ul>
+
+<p>After starting the application using <code>npm start</code>, access it through browser via
+the link <code>http://localhost:3000/</code>.</p>
+
+<p>New <em>Posts</em> can be created by <em>Logging</em> in through <em>google</em> account and the
+existing <em>Posts</em> may be viewed as readonly after accessing the url.</p>
+
+<h3 id="screenshots">Screenshots</h3>
+
+<p>Here are the screenshots of the system while it is live.</p>
+
+<p>Before login:
+[<img src="screenshots/unsigned.png" alt="before signin" />]</p>
+
+<p>After logging using <code>google</code> id, the header shows additional options as shown below</p>
+
+<p>[<img src="screenshots/loggedin_header.png" alt="after signin" />]</p>
+
+<p>New posts can be posted after signing in as shown below</p>
+
+<p>[<img src="screenshots/new_post.png" alt="create post" />]</p>
+
+<h2 id="offloadingfirebaseconfigurationtodotenv">Offloading Firebase configuration to dotenv</h2>
+
+<p>Offloading the <code>Firebase</code> configuration information like the api keys and url&#8217;s can be quite tricky.
+The below steps worked:</p>
+
+<ol>
+<li>Create a .env file at the root directory of your application and add the variables to it.</li>
+</ol>
+
+<pre><code class="javascript">// contents of .env
+
+REACT_APP_API_KEY = 'my-secret-api-key'
+</code></pre>
+
+<p><em>keep in mind a variable needs to start with <code>REACT_APP_</code> for it to work.</em></p>
+
+<ol>
+<li><p>Add <code>.env</code> to your <code>.gitignore</code> file so that Git ignores it and it never ends up on GitHub.</p></li>
+<li><p>Access the <em>ENV</em> variable in your application as below:</p></li>
+</ol>
+
+<pre><code class="javascript"># config.js file or the file you need to access ENV
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: `${process.env.REACT_APP_FIREBASE_API_KEY}`,
+    authDomain: `${process.env.REACT_APP_FIREBASE_AUTH_DOMAIN}`,
+    projectId: `${process.env.REACT_APP_FIREBASE_PROJECT_ID}`,
+    storageBucket: `${process.env.REACT_APP_FIREBASE_STORAGE_BUCKET}`,
+    messagingSenderId: `${process.env.REACT_APP_FIREBASE_MSGSENDER_ID}`,
+    appId: `${process.env.REACT_APP_FIREBASE_APP_ID}`
+};
+</code></pre>
+
+<h2 id="createreactapp">Create React App</h2>
+
+<p>This project was bootstrapped with <a href="https://github.com/facebook/create-react-app">Create React App</a>.</p>
+
+<h3 id="availablescripts">Available Scripts</h3>
+
+<p>In the project directory, you can run:</p>
+
+<h4 id="npmstart"><code>npm start</code></h4>
+
+<p>Runs the app in the development mode.<br />
+Open <a href="http://localhost:3000">http://localhost:3000</a> to view it in your browser.</p>
+
+<p>The page will reload when you make changes.<br />
+You may also see any lint errors in the console.</p>
+
+<h4 id="npmrunbuild"><code>npm run build</code></h4>
+
+<p>Builds the app for production to the <code>build</code> folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.</p>
+
+<p>The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!</p>
+
+</body>
+</html>

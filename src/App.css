@@ -1,5 +1,69 @@
 .App {
-  text-align: center;
+  margin: auto;
+  max-width: 1200px;
+}
+
+header {
+  height: 70px;
+  padding: 10px;
+  display: flex;
+  border-bottom: 2px solid #f2ebe9;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  max-width: 40px;
+  margin-right: 10px;
+  border: 2px solid;
+  border-radius: 5px;
+}
+
+.logo span {
+  font-size: 20px;
+  padding: 5px;
+  letter-spacing: 1px;
+  color: #76448a;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav .link {
+  padding: 10px;
+  color: #6495ed;
+  font-size: 16px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: plum;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+.nav .link.active {
+  background-color: #f2ebe9;
+  border-radius: 5px;
+}
+
+.nav .auth {
+  padding: 10px;
+  border: 0px;
+  border-radius: 5px;
+  margin-left: 10px;
+  background-color: #02a1be;
+  font-size: 16px;
+  color: #fff0f5;
+  cursor: pointer;
+}
+
+.nav .auth i {
+  font-size: 14px;
 }
 
 .App-logo {
@@ -26,6 +90,270 @@
 
 .App-link {
   color: #61dafb;
+}
+
+footer {
+  height: 70px;
+  padding: 10px;
+  display: flex;
+  border-top: 2px solid #f2ebe9;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.025em;
+  color: darkturquoise;
+  /* margin: 0 40px 0 40px; */
+}
+
+footer i {
+  font-size: 20px;
+}
+
+/* under the hood a link and an a tag are same */
+footer a {
+  color: darkturquoise;
+}
+
+footer a:hover {
+  color: orchid;
+}
+
+/*
+  For Home page
+  Animation Ref: https://www.joshwcomeau.com/animation/css-transitions
+  transition: transition-property | transition-duration | transition-timing-function | transition-delay
+*/
+.home {
+  place-items: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+/* for postcard */
+.card {
+  border: 2px solid #f2ebe9;
+  border-radius: 10px;
+  letter-spacing: 0.025em;
+  filter: drop-shadow(0 5px 10px 0 #ffffff);
+  background-color: #ffffff;
+  width: 800px;
+  max-width: calc(100% - 20px);
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  transition: 0.6s ease-in;
+  margin-bottom: 1.6em;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -10px;
+  background: #8e44ad;
+  height: 100%;
+  width: 20px;
+
+  transform: scale(1, 4);
+  transform-origin: 50% 50%;
+  transition: transform 0.25s ease-out;
+}
+
+.card:hover::before {
+  transition-delay: 0.2s;
+  transform: scale(80);
+}
+
+
+.card:hover {
+  color: #fdebd0;
+}
+
+.card h4 {
+    font-style: oblique;
+    color: cornflowerblue;
+}
+
+.card p {
+    padding: 10px 0;
+    text-align: justify;
+}
+
+.card .info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card .user {
+  font-size: 16px;
+  font-style: oblique;
+  margin-left: 10px;
+  border-width: 0px;
+  border-style: solid;
+  border-radius: 10px;
+  background-color: WhiteSmoke;
+  flex-wrap: wrap;
+}
+
+.card .user .author {
+  letter-spacing: 0.025em;
+  padding: 10px;
+  color: Indigo;
+  cursor: pointer;
+}
+
+.card .user .timestamp {
+  font-size: 12px;
+  color: gray;
+  padding: 0 10px 10px 10px;
+  letter-spacing: -0.05em;
+}
+
+.card .info .control {
+  padding: 10px 10px 0 2em;
+  font-size: x-large;
+  font-weight: bold;
+  margin-right: 10px;
+  color: crimson;
+  cursor: pointer;
+}
+
+.card .info .control:hover {
+  color: Cyan;
+}
+
+.create-post .heading {
+  text-align: center;
+  padding-top: 10px;
+  color: CornflowerBlue;
+  font-size: 20px;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #fda4af;
+  text-underline-offset: 8px;
+}
+
+.create-form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  width: 800px;
+  max-width: calc(100% - 20px);
+  margin: 20px auto;
+}
+
+.create-form .title {
+  background-color: GhostWhite;
+  color: FireBrick;
+  width: 75%;
+  padding: 10px;
+  border-radius: 5px;
+  border: solid LightSlateGray 2px;
+  box-sizing: border-box;
+  font-style: oblique;
+  letter-spacing: 0.1em;
+  font-family: cursive;
+  font-size: 18px;
+}
+
+.create-post .description {
+  background-color: FloralWhite;
+  padding: 10px;
+  width: 75%;
+  max-width: 75%;
+  height: 100px;
+  box-sizing: border-box;
+  border: solid Sienna 2px;
+  border-radius: 5px;
+  color: DarkSlateGray;
+  margin: 10px auto;
+}
+
+.create-form .submit {
+  font-family: sans-serif;
+  width: 75%;
+  background: #cc6666;
+  border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+  color: white;
+  font-size: 24px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: all 0.3s;
+  margin-top: -2px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.create-form .submit:hover {
+  background: #cc4949;
+  color: PapayaWhip;
+}
+
+.pagenotfound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  place-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  max-width: calc(100% - 20px);
+  padding: 5px;
+  background-color: white;
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 25px 0 25px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.item {
+  width: fit-content;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.item img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.item img:hover {
+  transform: scaleX(-1);
+}
+
+.item p {
+  font-size: 28px;
+  color: cadetblue;
+}
+
+.item .home {
+  padding: 10px;
+  color: #6495ed;
+  font-size: 16px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: plum;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.item .home:hover {
+  background-color: #f2ebe9;
+  border-radius: 5px;
 }
 
 @keyframes App-logo-spin {
