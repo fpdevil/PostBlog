@@ -4,6 +4,8 @@ A simple blog posting application with `React` and `Firebase`.
 
 The base application is created using the `create-react-app` template.
 
+A working model is available at https://postblog-ui.netlify.app/ for demo.
+
 ## Libraries
 The following libraries are required which can be installed with `npm install`.
 
